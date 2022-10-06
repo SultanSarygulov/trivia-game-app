@@ -1,0 +1,202 @@
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\r\n * Copyright 2018, The Android Open Source Project\r\n *\r\n * Licensed under the Apache License, Version 2.0 (the \"License\");\r\n * you may not use this file except in compliance with the License.\r\n * You may obtain a copy of the License at\r\n *\r\n *     http://www.apache.org/licenses/LICENSE-2.0\r\n *\r\n * Unless required by applicable law or agreed to in writing, software\r\n * distributed under the License is distributed on an \"AS IS\" BASIS,\r\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n * See the License for the specific language governing permissions and\r\n * limitations under the License.\r\n */\r\n\r\napply plugin: 'com.android.application'\r\n\r\napply plugin: 'kotlin-android'\r\n\r\napply plugin: 'kotlin-kapt'\r\n\r\nandroid {\r\n    compileSdkVersion 28\r\n    dataBinding {\r\n        enabled = true\r\n    }\r\n    defaultConfig {\r\n        applicationId 'com.example.android.navigation'\r\n        minSdkVersion 19\r\n        targetSdkVersion 28\r\n        vectorDrawables.useSupportLibrary = true\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    productFlavors {\r\n    }\r\n}\r\n\r\ndependencies {\r\n    implementation fileTree(include: ['*.jar'], dir: 'libs')\r\n    // Kotlin\r\n    implementation \"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin\"\r\n\r\n    // Constraint Layout\r\n    implementation \"androidx.constraintlayout:constraintlayout:$version_constraint_layout\"\r\n\r\n    // Core\r\n    implementation \"androidx.core:core:$version_core\"\r\n\r\n    // Material Design\r\n    implementation \"com.google.android.material:material:$version_material\"\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision ad3f1d4388aad843ceafae565ff935531b43c9bb)
++++ b/app/build.gradle	(date 1664988000362)
+@@ -21,14 +21,14 @@
+ apply plugin: 'kotlin-kapt'
+ 
+ android {
+-    compileSdkVersion 28
++    compileSdkVersion 32
+     dataBinding {
+         enabled = true
+     }
+     defaultConfig {
+         applicationId 'com.example.android.navigation'
+         minSdkVersion 19
+-        targetSdkVersion 28
++        targetSdkVersion 32
+         vectorDrawables.useSupportLibrary = true
+         versionCode 1
+         versionName "1.0"
+@@ -57,4 +57,6 @@
+ 
+     // Material Design
+     implementation "com.google.android.material:material:$version_material"
++    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
++    implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
+ }
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?><!--\r\n  ~ Copyright 2018, The Android Open Source Project\r\n  ~\r\n  ~ Licensed under the Apache License, Version 2.0 (the \"License\");\r\n  ~ you may not use this file except in compliance with the License.\r\n  ~ You may obtain a copy of the License at\r\n  ~\r\n  ~     http://www.apache.org/licenses/LICENSE-2.0\r\n  ~\r\n  ~ Unless required by applicable law or agreed to in writing, software\r\n  ~ distributed under the License is distributed on an \"AS IS\" BASIS,\r\n  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n  ~ See the License for the specific language governing permissions and\r\n  ~ limitations under the License.\r\n  -->\r\n\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\">\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:orientation=\"vertical\">\r\n\r\n                <!-- TODO (04) Add a fragment tag for the titleFragment in the LinearLayout\r\n                     Use @+id/titleFragment for the android:id\r\n                     Use com.example.android.navigation.TitleFragment for the android:name\r\n                     Use match_parent for the layout_height and layout_width -->\r\n        </LinearLayout>\r\n\r\n</layout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision ad3f1d4388aad843ceafae565ff935531b43c9bb)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1664988295945)
+@@ -22,6 +22,14 @@
+             android:layout_height="match_parent"
+             android:orientation="vertical">
+ 
++                <fragment
++                    android:id="@+id/myNavHostFragment"
++                    android:name="androidx.navigation.fragment.NavHostFragment"
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    app:navGraph="@navigation/navigation"
++                    app:defaultNavHost="true"/>
++
+                 <!-- TODO (04) Add a fragment tag for the titleFragment in the LinearLayout
+                      Use @+id/titleFragment for the android:id
+                      Use com.example.android.navigation.TitleFragment for the android:name
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#\r\n# Copyright 2018, The Android Open Source Project\r\n#\r\n# Licensed under the Apache License, Version 2.0 (the \"License\");\r\n# you may not use this file except in compliance with the License.\r\n# You may obtain a copy of the License at\r\n#\r\n#     http://www.apache.org/licenses/LICENSE-2.0\r\n#\r\n# Unless required by applicable law or agreed to in writing, software\r\n# distributed under the License is distributed on an \"AS IS\" BASIS,\r\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n# See the License for the specific language governing permissions and\r\n# limitations under the License.\r\n#\r\n\r\n#Tue Apr 17 15:14:16 PDT 2018\r\ndistributionBase=GRADLE_USER_HOME\r\ndistributionPath=wrapper/dists\r\nzipStoreBase=GRADLE_USER_HOME\r\nzipStorePath=wrapper/dists\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-4.10.1-all.zip\r\nandroid.databinding.enableV2=true\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+--- a/gradle/wrapper/gradle-wrapper.properties	(revision ad3f1d4388aad843ceafae565ff935531b43c9bb)
++++ b/gradle/wrapper/gradle-wrapper.properties	(date 1664985206839)
+@@ -19,5 +19,5 @@
+ distributionPath=wrapper/dists
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-4.10.1-all.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-all.zip
+ android.databinding.enableV2=true
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<!--\r\n  ~ Copyright 2018, The Android Open Source Project\r\n  ~\r\n  ~ Licensed under the Apache License, Version 2.0 (the \"License\");\r\n  ~ you may not use this file except in compliance with the License.\r\n  ~ You may obtain a copy of the License at\r\n  ~\r\n  ~     http://www.apache.org/licenses/LICENSE-2.0\r\n  ~\r\n  ~ Unless required by applicable law or agreed to in writing, software\r\n  ~ distributed under the License is distributed on an \"AS IS\" BASIS,\r\n  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n  ~ See the License for the specific language governing permissions and\r\n  ~ limitations under the License.\r\n  -->\r\n\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.android.navigation\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\">\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:configChanges=\"orientation|screenSize|smallestScreenSize|screenLayout\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision ad3f1d4388aad843ceafae565ff935531b43c9bb)
++++ b/app/src/main/AndroidManifest.xml	(date 1664986466379)
+@@ -27,7 +27,8 @@
+         android:theme="@style/AppTheme">
+         <activity
+             android:name=".MainActivity"
+-            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout">
++            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout"
++            android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.LAUNCHER" />
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!--\r\n  ~ Copyright 2018, The Android Open Source Project\r\n  ~\r\n  ~ Licensed under the Apache License, Version 2.0 (the \"License\");\r\n  ~ you may not use this file except in compliance with the License.\r\n  ~ You may obtain a copy of the License at\r\n  ~\r\n  ~     http://www.apache.org/licenses/LICENSE-2.0\r\n  ~\r\n  ~ Unless required by applicable law or agreed to in writing, software\r\n  ~ distributed under the License is distributed on an \"AS IS\" BASIS,\r\n  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n  ~ See the License for the specific language governing permissions and\r\n  ~ limitations under the License.\r\n  -->\r\n\r\n<resources>\r\n    <string name=\"app_name\">Android Trivia</string>\r\n    <string name=\"game_over\">Game Over</string>\r\n    <string name=\"try_again\">Try Again?</string>\r\n    <string name=\"position\">Position</string>\r\n    <string name=\"select_an_avatar\">Select an Avatar</string>\r\n    <string name=\"android_trivia\">Android Trivia</string>\r\n    <string name=\"about_text\">Android Trivia will help remind you of important concepts you have learned and will learn in Android development.\\n\\nConsider modifying the questions and graphics to make this game your own!</string>\r\n    <string name=\"rules_text\">Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\\n\\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.</string>\r\n    <string name=\"rules\">Rules</string>\r\n    <string name=\"about\">About</string>\r\n    <string name=\"trivia_hint\">Trivia Hint</string>\r\n    <string name=\"title_android_trivia_question\">Android Trivia (%1$d/%2$d)</string>\r\n    <string name=\"title_about_trivia\">About Trivia</string>\r\n    <string name=\"title_trivia_rules\">Trivia Rules</string>\r\n    <string name=\"share_success_text\">I mastered #UdacityAndroidTrivia with %1$d/%2$d correct questions!</string>\r\n    <string name=\"submit_button\">Submit</string>\r\n    <string name=\"congratulations\">Congratulations!</string>\r\n    <string name=\"share\">Share</string>\r\n    <string name=\"sharing_not_available\">Sharing Not Available</string>\r\n</resources>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision ad3f1d4388aad843ceafae565ff935531b43c9bb)
++++ b/app/src/main/res/values/strings.xml	(date 1664983490413)
+@@ -34,4 +34,6 @@
+     <string name="congratulations">Congratulations!</string>
+     <string name="share">Share</string>
+     <string name="sharing_not_available">Sharing Not Available</string>
++    <!-- TODO: Remove or change this placeholder text -->
++    <string name="hello_blank_fragment">Hello blank fragment</string>
+ </resources>
+Index: .idea/navEditor.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"navEditor-manualLayoutAlgorithm2\">\r\n    <option name=\"myPositions\">\r\n      <map>\r\n        <entry key=\"navigation.xml\">\r\n          <value>\r\n            <LayoutPositions>\r\n              <option name=\"myPositions\">\r\n                <map>\r\n                  <entry key=\"gameFragment\">\r\n                    <value>\r\n                      <LayoutPositions>\r\n                        <option name=\"myPosition\">\r\n                          <Point>\r\n                            <option name=\"x\" value=\"266\" />\r\n                            <option name=\"y\" value=\"144\" />\r\n                          </Point>\r\n                        </option>\r\n                        <option name=\"myPositions\">\r\n                          <map>\r\n                            <entry key=\"action_gameFragment_to_gameOverFragment\">\r\n                              <value>\r\n                                <LayoutPositions />\r\n                              </value>\r\n                            </entry>\r\n                            <entry key=\"action_gameFragment_to_gameWonFragment\">\r\n                              <value>\r\n                                <LayoutPositions />\r\n                              </value>\r\n                            </entry>\r\n                          </map>\r\n                        </option>\r\n                      </LayoutPositions>\r\n                    </value>\r\n                  </entry>\r\n                  <entry key=\"gameOverFragment\">\r\n                    <value>\r\n                      <LayoutPositions>\r\n                        <option name=\"myPosition\">\r\n                          <Point>\r\n                            <option name=\"x\" value=\"499\" />\r\n                            <option name=\"y\" value=\"20\" />\r\n                          </Point>\r\n                        </option>\r\n                      </LayoutPositions>\r\n                    </value>\r\n                  </entry>\r\n                  <entry key=\"titleFragment\">\r\n                    <value>\r\n                      <LayoutPositions>\r\n                        <option name=\"myPosition\">\r\n                          <Point>\r\n                            <option name=\"x\" value=\"34\" />\r\n                            <option name=\"y\" value=\"145\" />\r\n                          </Point>\r\n                        </option>\r\n                        <option name=\"myPositions\">\r\n                          <map>\r\n                            <entry key=\"action_titleFragment_to_gameFragment\">\r\n                              <value>\r\n                                <LayoutPositions />\r\n                              </value>\r\n                            </entry>\r\n                          </map>\r\n                        </option>\r\n                      </LayoutPositions>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </LayoutPositions>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/navEditor.xml b/.idea/navEditor.xml
+--- a/.idea/navEditor.xml	(revision ad3f1d4388aad843ceafae565ff935531b43c9bb)
++++ b/.idea/navEditor.xml	(date 1664988476007)
+@@ -13,34 +13,8 @@
+                       <LayoutPositions>
+                         <option name="myPosition">
+                           <Point>
+-                            <option name="x" value="266" />
+-                            <option name="y" value="144" />
+-                          </Point>
+-                        </option>
+-                        <option name="myPositions">
+-                          <map>
+-                            <entry key="action_gameFragment_to_gameOverFragment">
+-                              <value>
+-                                <LayoutPositions />
+-                              </value>
+-                            </entry>
+-                            <entry key="action_gameFragment_to_gameWonFragment">
+-                              <value>
+-                                <LayoutPositions />
+-                              </value>
+-                            </entry>
+-                          </map>
+-                        </option>
+-                      </LayoutPositions>
+-                    </value>
+-                  </entry>
+-                  <entry key="gameOverFragment">
+-                    <value>
+-                      <LayoutPositions>
+-                        <option name="myPosition">
+-                          <Point>
+-                            <option name="x" value="499" />
+-                            <option name="y" value="20" />
++                            <option name="x" value="181" />
++                            <option name="y" value="-184" />
+                           </Point>
+                         </option>
+                       </LayoutPositions>
+@@ -51,18 +25,9 @@
+                       <LayoutPositions>
+                         <option name="myPosition">
+                           <Point>
+-                            <option name="x" value="34" />
+-                            <option name="y" value="145" />
++                            <option name="x" value="-182" />
++                            <option name="y" value="-185" />
+                           </Point>
+-                        </option>
+-                        <option name="myPositions">
+-                          <map>
+-                            <entry key="action_titleFragment_to_gameFragment">
+-                              <value>
+-                                <LayoutPositions />
+-                              </value>
+-                            </entry>
+-                          </map>
+                         </option>
+                       </LayoutPositions>
+                     </value>
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\r\n * Copyright 2018, The Android Open Source Project\r\n *\r\n * Licensed under the Apache License, Version 2.0 (the \"License\");\r\n * you may not use this file except in compliance with the License.\r\n * You may obtain a copy of the License at\r\n *\r\n *     http://www.apache.org/licenses/LICENSE-2.0\r\n *\r\n * Unless required by applicable law or agreed to in writing, software\r\n * distributed under the License is distributed on an \"AS IS\" BASIS,\r\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n * See the License for the specific language governing permissions and\r\n * limitations under the License.\r\n */\r\n\r\n// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nbuildscript {\r\n    ext {\r\n        version_kotlin = \"1.3.11\"\r\n        version_core = \"1.0.1\"\r\n        version_constraint_layout = \"1.1.3\"\r\n        version_lifecycle_extensions = \"2.0.0\"\r\n        version_material = \"1.0.0\"\r\n        version_navigation = \"1.0.0\"\r\n    }\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n    dependencies {\r\n        classpath 'com.android.tools.build:gradle:3.3.0'\r\n        classpath \"org.jetbrains.kotlin:kotlin-gradle-plugin:$version_kotlin\"\r\n\r\n        // NOTE: Do not place your application dependencies here; they belong\r\n        // in the individual module build.gradle files\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision ad3f1d4388aad843ceafae565ff935531b43c9bb)
++++ b/build.gradle	(date 1664985206783)
+@@ -29,8 +29,8 @@
+         jcenter()
+     }
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:3.3.0'
+-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version_kotlin"
++        classpath 'com.android.tools.build:gradle:7.2.2'
++        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+ 
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files

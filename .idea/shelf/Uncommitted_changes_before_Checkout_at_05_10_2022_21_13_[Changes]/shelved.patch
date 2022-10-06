@@ -1,0 +1,48 @@
+Index: .idea/navEditor.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"navEditor-manualLayoutAlgorithm2\">\r\n    <option name=\"myPositions\">\r\n      <map>\r\n        <entry key=\"navigation.xml\">\r\n          <value>\r\n            <LayoutPositions>\r\n              <option name=\"myPositions\">\r\n                <map>\r\n                  <entry key=\"gameFragment\">\r\n                    <value>\r\n                      <LayoutPositions>\r\n                        <option name=\"myPosition\">\r\n                          <Point>\r\n                            <option name=\"x\" value=\"266\" />\r\n                            <option name=\"y\" value=\"144\" />\r\n                          </Point>\r\n                        </option>\r\n                        <option name=\"myPositions\">\r\n                          <map>\r\n                            <entry key=\"action_gameFragment_to_gameOverFragment\">\r\n                              <value>\r\n                                <LayoutPositions />\r\n                              </value>\r\n                            </entry>\r\n                            <entry key=\"action_gameFragment_to_gameWonFragment\">\r\n                              <value>\r\n                                <LayoutPositions />\r\n                              </value>\r\n                            </entry>\r\n                          </map>\r\n                        </option>\r\n                      </LayoutPositions>\r\n                    </value>\r\n                  </entry>\r\n                  <entry key=\"gameOverFragment\">\r\n                    <value>\r\n                      <LayoutPositions>\r\n                        <option name=\"myPosition\">\r\n                          <Point>\r\n                            <option name=\"x\" value=\"499\" />\r\n                            <option name=\"y\" value=\"20\" />\r\n                          </Point>\r\n                        </option>\r\n                        <option name=\"myPositions\">\r\n                          <map>\r\n                            <entry key=\"action_gameOverFragment_to_gameFragment\">\r\n                              <value>\r\n                                <LayoutPositions />\r\n                              </value>\r\n                            </entry>\r\n                          </map>\r\n                        </option>\r\n                      </LayoutPositions>\r\n                    </value>\r\n                  </entry>\r\n                  <entry key=\"gameWonFragment\">\r\n                    <value>\r\n                      <LayoutPositions>\r\n                        <option name=\"myPosition\">\r\n                          <Point>\r\n                            <option name=\"x\" value=\"12\" />\r\n                            <option name=\"y\" value=\"12\" />\r\n                          </Point>\r\n                        </option>\r\n                        <option name=\"myPositions\">\r\n                          <map>\r\n                            <entry key=\"action_gameWonFragment_to_gameFragment\">\r\n                              <value>\r\n                                <LayoutPositions />\r\n                              </value>\r\n                            </entry>\r\n                          </map>\r\n                        </option>\r\n                      </LayoutPositions>\r\n                    </value>\r\n                  </entry>\r\n                  <entry key=\"titleFragment\">\r\n                    <value>\r\n                      <LayoutPositions>\r\n                        <option name=\"myPosition\">\r\n                          <Point>\r\n                            <option name=\"x\" value=\"34\" />\r\n                            <option name=\"y\" value=\"145\" />\r\n                          </Point>\r\n                        </option>\r\n                        <option name=\"myPositions\">\r\n                          <map>\r\n                            <entry key=\"action_titleFragment_to_gameFragment\">\r\n                              <value>\r\n                                <LayoutPositions />\r\n                              </value>\r\n                            </entry>\r\n                          </map>\r\n                        </option>\r\n                      </LayoutPositions>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </LayoutPositions>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/navEditor.xml b/.idea/navEditor.xml
+--- a/.idea/navEditor.xml	(revision 8b9c97ca7e18c2791ee17b94ea0c36213282b0ea)
++++ b/.idea/navEditor.xml	(date 1664982149553)
+@@ -8,6 +8,18 @@
+             <LayoutPositions>
+               <option name="myPositions">
+                 <map>
++                  <entry key="aboutFragment">
++                    <value>
++                      <LayoutPositions>
++                        <option name="myPosition">
++                          <Point>
++                            <option name="x" value="256" />
++                            <option name="y" value="12" />
++                          </Point>
++                        </option>
++                      </LayoutPositions>
++                    </value>
++                  </entry>
+                   <entry key="gameFragment">
+                     <value>
+                       <LayoutPositions>
+@@ -72,6 +84,18 @@
+                               </value>
+                             </entry>
+                           </map>
++                        </option>
++                      </LayoutPositions>
++                    </value>
++                  </entry>
++                  <entry key="rulesFragment">
++                    <value>
++                      <LayoutPositions>
++                        <option name="myPosition">
++                          <Point>
++                            <option name="x" value="12" />
++                            <option name="y" value="12" />
++                          </Point>
+                         </option>
+                       </LayoutPositions>
+                     </value>
